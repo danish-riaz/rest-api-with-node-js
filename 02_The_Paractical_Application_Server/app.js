@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const feedRoutes = require('./routes/feed');
 
@@ -17,6 +18,21 @@ app.use((req, res, next) => {
 
 app.use('/feed', feedRoutes);
 
-app.listen(5001, () => {
-    console.log('Server Running at port 5001');
-});
+
+mongoose.connect(
+    'mongodb+srv://restapi:VPne2Jmbwa2DNApn@nodecompleteguide-rozde.mongodb.net/social?retryWrites=true&w=majority',
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then(result => {
+        app.listen(5001, () => {
+            console.log('Server Running at port 5001');
+        });
+    }).catch(err => {
+        console.log(err);
+    })
+
+
+
+
