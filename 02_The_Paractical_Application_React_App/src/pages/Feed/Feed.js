@@ -106,7 +106,7 @@ class Feed extends Component {
       editLoading: true
     });
     // Set up data (with image!)
-    let url = 'http://localhost:5001/post';
+    let url = 'http://localhost:5001/feed/post';
     let method = 'POST';
     if (this.state.editPost) {
       url = 'URL';
