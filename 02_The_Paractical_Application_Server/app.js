@@ -60,7 +60,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://restapi:5BWXbZ0UDxOl8YxD@nodecompleteguide-rozde.mongodb.net/social?retryWrites=true&w=majority',
+    'mongodb+srv://restapi:CoV0EKAXOVdSMFuy@nodecompleteguide-rozde.mongodb.net/social?retryWrites=true&w=majority',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
