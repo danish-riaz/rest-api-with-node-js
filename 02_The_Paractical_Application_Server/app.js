@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const multer = require('multer');
 
 const feedRoutes = require('./routes/feed');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -48,19 +49,22 @@ app.use((req, res, next) => {
 });
 
 app.use('/feed', feedRoutes);
+app.use('/auth', authRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
+  const array = error.array;
   res.status(status).json({
     message: message,
+    data: array,
   });
 });
 
 mongoose
   .connect(
-    'mongodb+srv://restapi:CoV0EKAXOVdSMFuy@nodecompleteguide-rozde.mongodb.net/social?retryWrites=true&w=majority',
+    'mongodb+srv://restapi:MCcd1yNPZqx0Xytg@nodecompleteguide-rozde.mongodb.net/social?retryWrites=true&w=majority',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
