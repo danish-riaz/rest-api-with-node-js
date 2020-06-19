@@ -64,15 +64,20 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    'mongodb+srv://restapi:MCcd1yNPZqx0Xytg@nodecompleteguide-rozde.mongodb.net/social?retryWrites=true&w=majority',
+    'mongodb+srv://respapi:XbzwHpBoiJX3vw0m@nodecompleteguide-rozde.mongodb.net/newsocial?retryWrites=true&w=majority',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     }
   )
   .then((result) => {
-    app.listen(5001, () => {
+    const server = app.listen(5001, () => {
       console.log('Server Running at port 5001');
+    });
+    const io = require('./soket').init(server);
+    // the cb will execute for every new client
+    io.on('connection', (socket) => {
+      console.log('client connected !');
     });
   })
   .catch((err) => {
