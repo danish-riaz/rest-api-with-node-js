@@ -2,7 +2,7 @@
 
 This repo contain code that will help you building your own REST API.
 
-#NOTE
+## NOTE
 Before statring servers (client and server) make to run
 ```
 npm install
